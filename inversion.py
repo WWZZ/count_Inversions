@@ -1,3 +1,4 @@
+#modified merge sort to count number of inversions
 def sortAndCount(ar, helper, start, end):
         if(start < end):
                 mid = (start+end)/2
@@ -8,6 +9,7 @@ def sortAndCount(ar, helper, start, end):
         return 0
         
 def mergeAndCount(ar,helper,start,mid,end):
+        #initialize helper array
         for i in range(start, end+1):
                 helper[i] = ar[i]
         helpL = start
@@ -21,6 +23,7 @@ def mergeAndCount(ar,helper,start,mid,end):
                 else:
                         ar[arIndex] = helper[helpR]
                         helpR += 1
+                        #Inversion count is elements left in left array
                         numInvers += (mid + 1) - helpL
                 arIndex += 1
         remain = mid - helpL
